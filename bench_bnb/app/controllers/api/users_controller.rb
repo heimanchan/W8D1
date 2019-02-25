@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(users_params)
     if @user.save
       login(@user)
-      render json: ["SUCCESSSSSSSSS"]
+      render :show
     else
       render json: ["invalid credentials"], status: 422
     end 
