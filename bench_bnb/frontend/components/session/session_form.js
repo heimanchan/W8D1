@@ -29,30 +29,13 @@ export default class SessionForm extends React.Component {
   }
 
   render() {
-    // if (this.props.formType === "signup") {
-    //   const header = (
-    //     <div>
-    //       <h3>Sign Up</h3>
-    //       <Link to="/login">Log In</Link>
-    //     </div>
-    //   )
-    // } else {
-    //   const header = (
-        // <div>
-        //   <h3>Login</h3>
-        //   <Link to="/signup">Sign Up</Link>
-        // </div>
-    //   )
-    // }
     const header = this.props.formType === "signup" ?
       (
         <>
           <h3>Sign Up</h3>
           <Link to="/login">Log In</Link>
         </>
-      )
-      :
-      (
+      ) : (
         <>
           <h3>Login</h3>
           <Link to="/signup">Sign Up</Link>

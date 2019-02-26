@@ -4,13 +4,11 @@ import configureStore from './store/store'
 import Root from './components/root'
 
 // Testing
-import { login } from './actions/session_actions';
+import { fetchAllBenches } from './actions/bench_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-  // Testing
-  
-  // let preloadedState = undefined;
+
   if (window.currentUser) {
     const preloadedState = {
       entities: {
@@ -24,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
   
-  window.login = login;
+  window.fetchAllBenches = fetchAllBenches;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   
