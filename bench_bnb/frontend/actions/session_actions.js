@@ -17,13 +17,15 @@ const logoutCurrentUser = () => ({
 
 // accepts an array
 const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 })
 
 // thunk action creator
 export const login = user => dispatch => (
-  SessionAPI.postSession(user).then(res => dispatch(receiveCurrentUser(res)))
+  SessionAPI.postSession(user)
+    .then(res => dispatch(receiveCurrentUser(res)))
+    .fail(error => dispatch(receiveErrors(error.responseJSON)))
 )
 
 // no arguments
@@ -32,6 +34,8 @@ export const logout = () => dispatch => (
 )
 
 export const signup = user => dispatch => (
-  SessionAPI.postUser(user).then(res => dispatch(receiveCurrentUser(res)))
+  SessionAPI.postUser(user)
+    .then(res => dispatch(receiveCurrentUser(res)))
+    .fail(error => dispatch(receiveErrors(error.responseJSON)))
 )
 
